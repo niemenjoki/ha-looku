@@ -1,0 +1,99 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Address of your Looku dashboard and a read key. Create the key in the dashboard settings or with `token:create homeassistant --scope read` on the server.",
+        "data": {
+          "url": "Dashboard address",
+          "api_key": "API key",
+          "verify_ssl": "Verify the SSL certificate"
+        },
+        "data_description": {
+          "url": "The address you open the Looku dashboard with, including the port.",
+          "api_key": "Starts with lk_. A key limited to one site with --site shows only that site."
+        }
+      },
+      "reauth_confirm": {
+        "description": "Looku rejected the API key. Enter a new read key.",
+        "data": {
+          "api_key": "API key"
+        }
+      },
+      "reconfigure": {
+        "description": "New address of the Looku dashboard. Leave the API key empty to keep the current one.",
+        "data": {
+          "url": "Dashboard address",
+          "api_key": "API key",
+          "verify_ssl": "Verify the SSL certificate"
+        },
+        "data_description": {
+          "api_key": "Empty: the current key is kept."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Looku did not answer. Check the address and port, and that Home Assistant can reach the server.",
+      "invalid_auth": "Looku rejected the API key.",
+      "not_allowed": "Looku refused Home Assistant. Add Home Assistant's IP address to LOOKU_API_ALLOW and the address you entered here to LOOKU_API_HOSTS, then restart Looku.",
+      "invalid_url": "Enter the full address with http or https at the start.",
+      "no_sites": "The key works but cannot read any site. Add a site in Looku or use a key without --site."
+    },
+    "abort": {
+      "already_configured": "This Looku dashboard is already configured.",
+      "reauth_successful": "The API key was updated.",
+      "reconfigure_successful": "The Looku settings were updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "The period all totals cover. The last 24 hours ends now; the others end today in the site's time zone.",
+        "data": {
+          "range": "Period"
+        }
+      }
+    }
+  },
+  "selector": {
+    "range": {
+      "options": {
+        "24h": "Last 24 hours",
+        "7d": "Last 7 days",
+        "28d": "Last 28 days",
+        "3m": "Last 3 months",
+        "12m": "Last 12 months"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pageviews": {
+        "name": "Page views {range}"
+      },
+      "visitors": {
+        "name": "Visitors {range}"
+      },
+      "sessions": {
+        "name": "Sessions {range}"
+      },
+      "pages_per_session": {
+        "name": "Pages per session {range}"
+      },
+      "last_pageview": {
+        "name": "Last page view"
+      },
+      "orders": {
+        "name": "Orders {range}"
+      },
+      "revenue": {
+        "name": "Revenue {range}"
+      },
+      "average_order": {
+        "name": "Average order {range}"
+      },
+      "conversion": {
+        "name": "Conversion {range}"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "looku",
+  "name": "Looku",
+  "codeowners": ["@niemenjoki"],
+  "config_flow": true,
+  "documentation": "https://github.com/niemenjoki/ha-looku",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/niemenjoki/ha-looku/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

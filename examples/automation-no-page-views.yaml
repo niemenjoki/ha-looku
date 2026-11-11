@@ -1,0 +1,17 @@
+# Notify once when a site has had no page views for 6 hours: its connector may have stopped sending.
+# Replace the sensor and the notify action with your own. Six hours suits a site with steady traffic; use a longer
+# time for a quiet site. The template is checked every minute and fires again only after a new page view.
+alias: "Looku: no page views from the shop"
+triggers:
+  - trigger: template
+    value_template: >
+      {% set last = states('sensor.example_shop_last_page_view') | as_datetime %}
+      {{ last is not none and now() - last > timedelta(hours=6) }}
+actions:
+  - action: notify.notify
+    data:
+      title: "Looku: no page views"
+      message: >
+        No page views from the shop since
+        {{ states('sensor.example_shop_last_page_view') | as_datetime | as_local }}.
+mode: single

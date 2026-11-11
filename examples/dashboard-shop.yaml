@@ -1,0 +1,47 @@
+# Card for a shop site (the shop module on in Looku), with built-in cards only: visits next to orders and sales.
+# Add it in a dashboard: Edit dashboard > Add card > Manual, and paste this.
+# Replace "example_shop" with your site's entity prefix, and "7d" with the period you chose.
+type: vertical-stack
+cards:
+  - type: heading
+    heading: Example shop
+    heading_style: title
+    icon: mdi:storefront-outline
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: tile
+        entity: sensor.example_shop_revenue_7d
+        name: Revenue
+        icon: mdi:cash-multiple
+      - type: tile
+        entity: sensor.example_shop_orders_7d
+        name: Orders
+        icon: mdi:package-variant-closed
+      - type: tile
+        entity: sensor.example_shop_average_order_7d
+        name: Average order
+        icon: mdi:cart-outline
+      - type: tile
+        entity: sensor.example_shop_conversion_7d
+        name: Conversion
+        icon: mdi:percent-outline
+      - type: tile
+        entity: sensor.example_shop_visitors_7d
+        name: Visitors
+        icon: mdi:account-multiple-outline
+      - type: tile
+        entity: sensor.example_shop_page_views_7d
+        name: Page views
+        icon: mdi:file-eye-outline
+  - type: statistics-graph
+    title: Orders, 7-day total
+    entities:
+      - entity: sensor.example_shop_orders_7d
+        name: Orders
+    stat_types:
+      - mean
+    period: day
+    days_to_show: 30
+    chart_type: line

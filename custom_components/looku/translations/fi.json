@@ -1,0 +1,99 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Looku-kojelaudan osoite ja lukuavain. Luo avain kojelaudan asetuksissa tai palvelimella komennolla `token:create homeassistant --scope read`.",
+        "data": {
+          "url": "Kojelaudan osoite",
+          "api_key": "API-avain",
+          "verify_ssl": "Tarkista SSL-varmenne"
+        },
+        "data_description": {
+          "url": "Osoite, jolla avaat Looku-kojelaudan, portti mukaan lukien.",
+          "api_key": "Alkaa lk_. Yhteen sivustoon rajattu avain (--site) näyttää vain sen sivuston."
+        }
+      },
+      "reauth_confirm": {
+        "description": "Looku hylkäsi API-avaimen. Anna uusi lukuavain.",
+        "data": {
+          "api_key": "API-avain"
+        }
+      },
+      "reconfigure": {
+        "description": "Looku-kojelaudan uusi osoite. Jätä API-avain tyhjäksi, niin nykyinen säilyy.",
+        "data": {
+          "url": "Kojelaudan osoite",
+          "api_key": "API-avain",
+          "verify_ssl": "Tarkista SSL-varmenne"
+        },
+        "data_description": {
+          "api_key": "Tyhjä: nykyinen avain säilyy."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Looku ei vastannut. Tarkista osoite ja portti sekä se, että Home Assistant tavoittaa palvelimen.",
+      "invalid_auth": "Looku hylkäsi API-avaimen.",
+      "not_allowed": "Looku torjui Home Assistantin. Lisää Home Assistantin IP-osoite asetukseen LOOKU_API_ALLOW ja tähän antamasi osoite asetukseen LOOKU_API_HOSTS ja käynnistä Looku uudelleen.",
+      "invalid_url": "Anna koko osoite niin, että alussa on http tai https.",
+      "no_sites": "Avain toimii, mutta sillä ei voi lukea yhtään sivustoa. Lisää sivusto Lookuun tai käytä avainta ilman --site-rajausta."
+    },
+    "abort": {
+      "already_configured": "Tämä Looku-kojelauta on jo määritetty.",
+      "reauth_successful": "API-avain päivitettiin.",
+      "reconfigure_successful": "Lookun asetukset päivitettiin."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "Jakso, jonka luvut kattavat. Viimeiset 24 tuntia päättyy nyt, muut tähän päivään sivuston aikavyöhykkeellä.",
+        "data": {
+          "range": "Jakso"
+        }
+      }
+    }
+  },
+  "selector": {
+    "range": {
+      "options": {
+        "24h": "Viimeiset 24 tuntia",
+        "7d": "Viimeiset 7 päivää",
+        "28d": "Viimeiset 28 päivää",
+        "3m": "Viimeiset 3 kuukautta",
+        "12m": "Viimeiset 12 kuukautta"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pageviews": {
+        "name": "Sivunäytöt {range}"
+      },
+      "visitors": {
+        "name": "Kävijät {range}"
+      },
+      "sessions": {
+        "name": "Istunnot {range}"
+      },
+      "pages_per_session": {
+        "name": "Sivuja istunnossa {range}"
+      },
+      "last_pageview": {
+        "name": "Viimeisin sivunäyttö"
+      },
+      "orders": {
+        "name": "Tilaukset {range}"
+      },
+      "revenue": {
+        "name": "Myynti {range}"
+      },
+      "average_order": {
+        "name": "Keskiostos {range}"
+      },
+      "conversion": {
+        "name": "Konversio {range}"
+      }
+    }
+  }
+}

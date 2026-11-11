@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": "blog",
+      "name": "My blog",
+      "domain": "blog.example.com",
+      "timezone": "Europe/Helsinki",
+      "today": "2026-11-11",
+      "modules": ["perus"],
+      "visitors": "off",
+      "opt_out_url": null,
+      "last_pageview": "2026-11-11T08:14:03.512Z"
+    },
+    {
+      "id": "shop",
+      "name": "Example shop",
+      "domain": "shop.example.com",
+      "timezone": "Europe/Helsinki",
+      "today": "2026-11-11",
+      "modules": ["perus", "shop", "campaigns"],
+      "visitors": "daily-hash",
+      "opt_out_url": "https://shop.example.com/privacy",
+      "last_pageview": "2026-11-11T09:02:41.007Z"
+    }
+  ]
+}

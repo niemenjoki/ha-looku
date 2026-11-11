@@ -1,0 +1,44 @@
+# Card for one site, with built-in cards only: the totals of the chosen period and a page view graph.
+# Add it in a dashboard: Edit dashboard > Add card > Manual, and paste this.
+# Replace "my_blog" with your site's entity prefix (Settings > Devices & services > Looku > your site), and "7d"
+# with the period you chose in the integration's options.
+type: vertical-stack
+cards:
+  - type: heading
+    heading: My blog
+    heading_style: title
+    icon: mdi:chart-line
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: tile
+        entity: sensor.my_blog_page_views_7d
+        name: Page views
+        icon: mdi:file-eye-outline
+      - type: tile
+        entity: sensor.my_blog_visitors_7d
+        name: Visitors
+        icon: mdi:account-multiple-outline
+      - type: tile
+        entity: sensor.my_blog_sessions_7d
+        name: Sessions
+        icon: mdi:cursor-default-click-outline
+      - type: tile
+        entity: sensor.my_blog_pages_per_session_7d
+        name: Pages / session
+        icon: mdi:file-multiple-outline
+  - type: statistics-graph
+    title: Page views, 7-day total
+    entities:
+      - entity: sensor.my_blog_page_views_7d
+        name: Page views
+    stat_types:
+      - mean
+    period: day
+    days_to_show: 30
+    chart_type: line
+  - type: tile
+    entity: sensor.my_blog_last_page_view
+    name: Last page view
+    icon: mdi:clock-outline
